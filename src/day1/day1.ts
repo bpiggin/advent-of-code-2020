@@ -1,8 +1,20 @@
-export const calculateFuelForMass = (mass: number) => {
-  return Math.floor(mass / 3) - 2;
+export const func = (input: number[], test: number) => {
+  let answer;
+  input.forEach((e, i) => {
+    if (e + test === 2020) {
+      answer = e * test;
+    }
+  });
+  return answer;
 };
 
 export const day1 = (input: number[]) => {
-  const fuel = input.map((m) => calculateFuelForMass(m));
-  return fuel.reduce((a, b) => a + b, 0);
+  let answer;
+  input.forEach((e) => {
+    const well = func(input, e);
+    if (well) {
+      answer = well;
+    }
+  });
+  return answer;
 };
