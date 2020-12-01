@@ -4,11 +4,9 @@ export const day1part2 = (input: number[]) => {
   let answer;
   for (let i = 0; i < input.length; i++) {
     for (let j = 0; j < input.length; j++) {
-      const e = input[i];
-      const e2 = input[j];
-      const match = testEntry(input, e, e2);
+      const match = testEntry(input, i, j);
       if (match) {
-        answer = e * e2 * match;
+        answer = input[i] * input[j] * match;
         break;
       }
     }

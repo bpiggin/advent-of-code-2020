@@ -1,16 +1,23 @@
-export const testEntry = (input: number[], test: number, test2: number = 0) => {
-  return input.find(
-    (e) => e !== test && e !== test2 && e + test + test2 === 2020,
-  );
+export const testEntry = (
+  input: number[],
+  testIndex: number,
+  testIndex2: number = -1,
+) => {
+  return input.find((e, i) => {
+    const testValue2 = testIndex2 !== -1 ? input[testIndex2] : 0;
+    if (i === testIndex || i === testIndex2) {
+      return false;
+    }
+    return e + input[testIndex] + testValue2 === 2020;
+  });
 };
 
 export const day1 = (input: number[]) => {
   let answer;
   for (let i = 0; i < input.length; i++) {
-    const e = input[i];
-    const match = testEntry(input, e);
+    const match = testEntry(input, i);
     if (match) {
-      answer = e * match;
+      answer = input[i] * match;
       break;
     }
   }
