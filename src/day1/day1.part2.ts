@@ -1,22 +1,17 @@
-export const func = (input: number[], test1: number, test2: number) => {
-  let answer;
-  input.forEach((e, i) => {
-    if (e + test1 + test2 === 2020) {
-      answer = e * test1 * test2;
-    }
-  });
-  return answer;
-};
+import { testEntry } from './day1';
 
 export const day1part2 = (input: number[]) => {
   let answer;
-  input.forEach((e1) => {
-    input.forEach((e2) => {
-      const well = func(input, e1, e2);
-      if (well) {
-        answer = well;
+  for (let i = 0; i < input.length; i++) {
+    for (let j = 0; j < input.length; j++) {
+      const e = input[i];
+      const e2 = input[j];
+      const match = testEntry(input, e, e2);
+      if (match) {
+        answer = e * e2 * match;
+        break;
       }
-    });
-  });
+    }
+  }
   return answer;
 };

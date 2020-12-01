@@ -1,5 +1,7 @@
-export const testEntry = (input: number[], test: number) => {
-  return input.find((e) => e !== test && e + test === 2020);
+export const testEntry = (input: number[], test: number, test2: number = 0) => {
+  return input.find(
+    (e) => e !== test && e !== test2 && e + test + test2 === 2020,
+  );
 };
 
 export const day1 = (input: number[]) => {
