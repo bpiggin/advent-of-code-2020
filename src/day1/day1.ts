@@ -1,20 +1,16 @@
-export const func = (input: number[], test: number) => {
-  let answer;
-  input.forEach((e, i) => {
-    if (e + test === 2020) {
-      answer = e * test;
-    }
-  });
-  return answer;
+export const testEntry = (input: number[], test: number) => {
+  return input.find((e) => e !== test && e + test === 2020);
 };
 
 export const day1 = (input: number[]) => {
   let answer;
-  input.forEach((e) => {
-    const well = func(input, e);
-    if (well) {
-      answer = well;
+  for (let i = 0; i < input.length; i++) {
+    const e = input[i];
+    const match = testEntry(input, e);
+    if (match) {
+      answer = e * match;
+      break;
     }
-  });
+  }
   return answer;
 };
