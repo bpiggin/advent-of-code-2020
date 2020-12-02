@@ -13,7 +13,7 @@ export const parseLine = (line: string) => {
 export const isValid = (line: string) => {
   const { password, letter, min, max } = parseLine(line);
   const matches = [...password].filter((e) => e === letter).length;
-  return matches >= min && matches <= max;
+  return min <= matches && matches <= max;
 };
 
 export const day2 = (input: string[]) => {
