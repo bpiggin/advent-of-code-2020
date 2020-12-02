@@ -12,7 +12,7 @@ export const parseLine = (line: string) => {
 
 export const isValid = (line: string) => {
   const { password, letter, min, max } = parseLine(line);
-  const matches = [...password].filter((e) => e === letter).length;
+  const matches = (password.match(new RegExp(letter, 'g')) ?? []).length;
   return min <= matches && matches <= max;
 };
 
