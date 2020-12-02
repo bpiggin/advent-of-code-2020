@@ -1,15 +1,13 @@
-import { testEntry } from './day1';
-
 export const day1part2 = (input: number[]) => {
-  let answer;
-  for (let i = 0; i < input.length; i++) {
-    for (let j = 0; j < input.length; j++) {
-      const match = testEntry(input, i, j);
-      if (match) {
-        answer = input[i] * input[j] * match;
-        break;
+  let answer = 0;
+  const map = new Map(input.map((e, i) => [e, i]));
+  input.find((e1) => {
+    input.find((e2) => {
+      const index = map.get(2020 - e1 - e2);
+      if (index) {
+        answer = e1 * e2 * input[index];
       }
-    }
-  }
+    });
+  }) ?? 0;
   return answer;
 };

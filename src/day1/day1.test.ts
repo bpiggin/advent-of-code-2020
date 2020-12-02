@@ -9,7 +9,7 @@ test('Provided test cases', () => {
   366
   299
   675
-  1456`);
+  1456`) as number[];
   expect(day1(testInput)).toBe(514579);
 });
 
