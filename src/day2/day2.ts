@@ -1,12 +1,10 @@
 export const parseLine = (line: string) => {
-  const [policy, password] = line.split(': ');
-  const [range, letter] = policy.split(' ');
-  const [min, max] = range.split('-').map(Number);
+  const groups = /([\d]+)-([\d]+) ([a-z]): ([a-z]+)/g.exec(line)!;
   return {
-    password,
-    letter,
-    min,
-    max,
+    min: +groups[1],
+    max: +groups[2],
+    letter: groups[3],
+    password: groups[4],
   };
 };
 
