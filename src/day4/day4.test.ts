@@ -3,7 +3,7 @@ import { logAnswer } from '../utils/logging';
 import { data, testData } from './day4.data';
 
 test('Provided test cases', () => {
-  expect(day4(testData)).toBe(4);
+  expect(day4(testData)).toBe(2);
 });
 
 test('Returns an answer', () => {
