@@ -2249,13 +2249,7 @@ lho
 hol
 jfolhv`;
 
-export const data = (parseInput(input, '\n\n') as string[]).map((e) =>
-  e.replace(/[\n]/g, ''),
-);
-
-export const data2 = `abcx
-abcy
-abcz`.replace(/[\n]/g, '');
+export const data = parseInput(input, '\n\n') as string[];
 
 export const testInput3 = `abc
 
@@ -2272,6 +2266,4 @@ a
 a
 
 b`;
-export const data3 = (parseInput(testInput3, '\n\n') as string[]).map((e) =>
-  e.replace(/[\n]/g, ''),
-);
+export const data3 = parseInput(testInput3, '\n\n') as string[];

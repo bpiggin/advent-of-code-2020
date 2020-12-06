@@ -1,9 +1,8 @@
-import { countAnswers, day6 } from './day6';
+import { day6 } from './day6';
 import { logAnswer } from '../utils/logging';
-import { data, data2, data3 } from './day6.data';
+import { data, data3 } from './day6.data';
 
 test('Provided test cases', () => {
-  expect(countAnswers(data2)).toBe(6);
   expect(day6(data3)).toBe(11);
 });
 
