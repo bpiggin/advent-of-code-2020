@@ -1,22 +1,23 @@
-export const day7 = (input: string[], desiredBagColor: string) => {
+const countContainerBags = (input: string[], desiredBagColor: string) => {
+  const containerBags = new Set();
+  const bags = input.map((e) => e.split(' contain ')[0]);
+  const innerBagsOfBags = input.map((e) => e.split(' contain ')[1]);
   let currentBagColours = [desiredBagColor];
-  const bags = input.map((e) => e.split('contain')[0]);
-  const rules = input.map((e) => e.split('contain')[1]);
-  let set = new Set();
   while (currentBagColours.length > 0) {
-    let newBagColours: string[] = [];
+    const newBagColours = new Set();
     for (let i = 0; i < bags.length; i++) {
-      const bag = bags[i];
-      const rule = rules[i];
-      if (currentBagColours.some((e) => rule.includes(e))) {
-        const words = bag.split(' ');
-        set.add(`${words[0]} ${words[1]}`);
-        if (!newBagColours.includes(`${words[0]} ${words[1]}`)) {
-          newBagColours.push(`${words[0]} ${words[1]}`);
-        }
+      if (currentBagColours.some((e) => innerBagsOfBags[i].includes(e))) {
+        const words = bags[i].split(' ');
+        const bagColour = `${words[0]} ${words[1]}`;
+        containerBags.add(bagColour);
+        newBagColours.add(bagColour);
       }
     }
-    currentBagColours = newBagColours;
+    currentBagColours = Array.from(newBagColours) as string[];
   }
-  return set.size;
+  return containerBags.size;
+};
+
+export const day7 = (input: string[]) => {
+  return countContainerBags(input, 'shiny gold');
 };
