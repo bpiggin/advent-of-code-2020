@@ -1,3 +1,6 @@
-export const indexesOf = (arr: unknown[], val: unknown) => {
-  return arr.reduce((a: number[], b, i) => (b === val ? a.concat(i) : a), []);
+export const indexesOf = <T>(arr: T[], predicate: (e: T) => boolean) => {
+  return arr.reduce(
+    (a: number[], b, i) => (predicate(b) ? a.concat(i) : a),
+    [],
+  );
 };
