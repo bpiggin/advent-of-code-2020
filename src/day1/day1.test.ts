@@ -13,10 +13,10 @@ test('Provided test cases', () => {
   expect(day1(testInput)).toBe(514579);
 });
 
-test('Returns an answer', () => {
-  const answer = day1(data);
-  expect(typeof answer).toBe('number');
-  expect(isNaN(answer)).toBe(false);
-  expect(day1(data)).toBeGreaterThan(0);
-  logAnswer(answer);
-});
+// test('Returns an answer', () => {
+//   const answer = day1(data);
+//   expect(typeof answer).toBe('number');
+//   expect(isNaN(answer)).toBe(false);
+//   expect(day1(data)).toBeGreaterThan(0);
+//   logAnswer(answer);
+// });
